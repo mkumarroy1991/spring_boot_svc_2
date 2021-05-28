@@ -67,7 +67,7 @@ node{
             withCredentials([usernamePassword(credentialsId: 'DHCred', passwordVariable: 'DHPASS', usernameVariable: 'DHUSER')]) {
         
                 sh "docker login -u ${DHUSER} -p ${DHPASS}"
-                sh "docker push vinay1908/spring-boot:v1"
+                sh "docker push vinay1908/spring-boot:v3"
                 }
         }
 
