@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: spring-con
-        image: vinay1908/spring-boot:v1
+        image: vinay1908/spring-boot:v2
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
