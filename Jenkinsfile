@@ -1,7 +1,8 @@
 node{
     
     def MAVEN_HOME = '/opt/maven/bin'
-    def mail_to = 'vinaylodhi1908@gmail.com'
+    def mail_to = 'vinaylodhi19081999@gmail.com'
+    def mail_from = 'vinaylodhi1908@gmail.com'
     try{
         stage('Cleaning the Workspace') {
             sh """
@@ -57,7 +58,7 @@ node{
             
         stage('Docker Build'){
                 
-            sh "docker build -t vinay1908/spring-boot:v2 ."
+            sh "docker build -t vinay1908/spring-boot:v3 ."
 
         }
         
@@ -86,7 +87,8 @@ node{
             emailext ( attachLog: true, 
                 subject: "Jenkins Job: '${env.JOB_NAME}' has completed",
                 body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'",
-                to: "${mail_to}"
+                to: "${mail_to}",
+                from: "${mail_from}"
             )
                 
         } 
@@ -96,7 +98,8 @@ node{
         emailext ( attachLog: true, 
         subject: "Jenkins Job: '${env.JOB_NAME}' has failed",
         body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'",
-        to: "${mail_to}"
+        to: "${mail_to}",
+        from: "${mail_from}"
         )
 
     }
