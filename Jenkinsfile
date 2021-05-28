@@ -50,7 +50,7 @@ node{
 
         }
         
-        stage('Docker Build'){
+        stage('Push to DockerHub'){
 
             withCredentials([usernamePassword(credentialsId: 'DHCred', passwordVariable: 'DHPASS', usernameVariable: 'DHUSER')]) {
         
