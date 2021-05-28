@@ -26,7 +26,7 @@ a:active {
 </head>
 <body>
 
-<h2>Link Colors</h2>
+<h2>Sample Springboot Application</h2>
 
 <p>You can change the default colors of links</p>
 
