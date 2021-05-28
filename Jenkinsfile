@@ -75,7 +75,7 @@ node{
             emailext ( attachLog: true, 
                 subject: "Jenkins Job: '${env.JOB_NAME}' has completed",
                 body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'",
-                to: ${mail_to}
+                to: "${mail_to}"
             )
                 
         } 
@@ -85,7 +85,7 @@ node{
         emailext ( attachLog: true, 
         subject: "Jenkins Job: '${env.JOB_NAME}' has failed",
         body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'",
-        to: ${mail_to}
+        to: "${mail_to}"
         )
 
     }
