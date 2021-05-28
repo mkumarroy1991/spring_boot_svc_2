@@ -32,7 +32,7 @@ node{
         }
             
         stage('Uploading Artifacts to Artifactory'){
-            def server = Artifactory.server('art-dev')
+            /*def server = Artifactory.server('art-dev')
                 def uploadSpec = """{
                                 "files": [
                                     {
@@ -41,7 +41,7 @@ node{
                                     }
                                 ]
                                 }"""
-            server.upload(uploadSpec)
+            server.upload(uploadSpec)*/
         }
             
         stage('Docker Build'){
