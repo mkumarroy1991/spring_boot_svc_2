@@ -24,6 +24,17 @@ node{
             sh "${MAVEN_HOME}/mvn clean test"
                 
         }
+
+        stage('SonarQube'){
+
+            withSonarQubeEnv(credentialsId: 'sonar-key', installationName: 'sonar-server') {
+
+                sh "${MAVEN_HOME}/mvn -B clean verify sonar-scanner:sonar"
+
+            }    
+            
+                
+        }
             
         stage('mvn build'){
                 
