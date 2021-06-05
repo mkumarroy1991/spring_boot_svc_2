@@ -14,7 +14,7 @@ node{
         }
         stage('Git Checkout') {
                 
-            git branch: 'dev',
+            git branch: 'svc2',
                 credentialsId: 'git_cred',
                 url: 'https://github.com/VinayLodhi/SpringBoot.git'
                     
