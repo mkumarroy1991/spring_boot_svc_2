@@ -58,7 +58,7 @@ node{
             
         stage('Docker Build'){
                 
-            sh "docker build -t vinay1908/spring-boot:v4 ."
+            sh "docker build -t vinay1908/spring-boot:v5 ."
 
         }
         
@@ -67,7 +67,7 @@ node{
             withCredentials([usernamePassword(credentialsId: 'DHCred', passwordVariable: 'DHPASS', usernameVariable: 'DHUSER')]) {
         
                 sh "docker login -u ${DHUSER} -p ${DHPASS}"
-                sh "docker push vinay1908/spring-boot:v4"
+                sh "docker push vinay1908/spring-boot-svc2:v5"
                 }
         }
 
