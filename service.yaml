@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: springservice2
   labels:
-    app: springSvc2
+    app: springsvc2
 spec:
   selector:
-    app: springSvc2
+    app: springsvc2
   type: NodePort
   ports:
     - port: 8080
