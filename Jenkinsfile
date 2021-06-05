@@ -58,7 +58,7 @@ node{
             
         stage('Docker Build'){
                 
-            sh "docker build -t vinay1908/spring-boot:v5 ."
+            sh "docker build -t vinay1908/spring-boot-svc2:v5 ."
 
         }
         
