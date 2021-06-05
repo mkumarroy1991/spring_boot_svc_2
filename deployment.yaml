@@ -1,11 +1,11 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: springbootSvc2
+  name: springbootsvc2
 spec:
   selector:
     matchLabels:
-      app: springSvc2
+      app: springsvc2
   replicas: 2 # tells deployment to run 2 pods matching the template
   strategy:
     type: RollingUpdate
@@ -16,10 +16,10 @@ spec:
   template:
     metadata:
       labels:
-        app: springSvc2
+        app: springsvc2
     spec:
       containers:
-      - name: springSvc2-con
+      - name: springsvc2-con
         image: vinay1908/spring-boot-svc2:v5
         imagePullPolicy: Always
         ports:
