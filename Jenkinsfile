@@ -73,7 +73,7 @@ node{
             
         stage('Docker Build'){
   
-            sh "docker build -t vinay1908/spring-app-1:${build_tag} ."
+            sh "docker build -t vinay1908/spring-app-2:${build_tag} ."
 
         }
         
@@ -82,7 +82,7 @@ node{
             withCredentials([usernamePassword(credentialsId: 'DHCred', passwordVariable: 'DHPASS', usernameVariable: 'DHUSER')]) {
                  
                 sh "docker login -u ${DHUSER} -p ${DHPASS}"
-                sh "docker push vinay1908/spring-app-1:${build_tag}"
+                sh "docker push vinay1908/spring-app-2:${build_tag}"
                 }
         }
 
