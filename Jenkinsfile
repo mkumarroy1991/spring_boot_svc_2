@@ -99,27 +99,26 @@ node{
 
         stage('Post-build Section') {
             
-            emailext ( attachLog: true, 
-                subject: "Jenkins Job: '${env.JOB_NAME}' has completed",
-                body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'",
-                to: "${mail_to}",
-                from: "${mail_from}"
-            )
+            mail bcc: '',
+            cc: '', 
+            from: '', replyTo: '', 
+            subject: "${currentBuild.result}fully Deployed into ${params.env} Environment", to: "${mail_to}",
+            body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'"
+            
                 
-        } 
+        }
         
-     }catch(Exception exp){
+    }catch(Exception exp){
         
-        emailext ( attachLog: true, 
-        subject: "Jenkins Job: '${env.JOB_NAME}' has failed",
-        body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'",
-        to: "${mail_to}",
-        from: "${mail_from}"
-        )
+        mail bcc: '',
+            cc: '', 
+            from: '', replyTo: '', 
+            subject: "${currentBuild.result}fully Deployed into ${params.env} Environment", to: "${mail_to}",
+            body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'"
+            
+
 
     }
-
-    
 
 
 }
