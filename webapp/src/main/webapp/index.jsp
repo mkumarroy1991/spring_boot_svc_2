@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h2>Sample Springboot Application</h2>
+<h2>Sample Springboot Application SVC 2</h2>
 
 <p>svc2</p>
 
