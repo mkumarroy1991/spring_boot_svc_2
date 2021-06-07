@@ -6,7 +6,7 @@ node{
    def build_tag_format = "--pretty='%h'"
     def build_tag
     
-   
+    try{
        
         stage('Cleaning the Workspace') {
             sh """
@@ -107,6 +107,17 @@ node{
             )
                 
         } 
+        
+     }catch(Exception exp){
+        
+        emailext ( attachLog: true, 
+        subject: "Jenkins Job: '${env.JOB_NAME}' has failed",
+        body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'",
+        to: "${mail_to}",
+        from: "${mail_from}"
+        )
+
+    }
 
     
 
