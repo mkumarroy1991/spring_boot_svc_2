@@ -6,7 +6,7 @@ metadata:
     app: spring-2
 spec:
   selector:
-    app: springsvc2
+    app: spring-2
   type: NodePort
   ports:
     - port: 8080
