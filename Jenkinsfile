@@ -45,7 +45,7 @@ node{
 
             withSonarQubeEnv(credentialsId: 'sonar-key', installationName: 'sonar-server') {
 
-                sh "${MAVEN_HOME}/mvn -B clean verify sonar:sonar"
+               // sh "${MAVEN_HOME}/mvn -B clean verify sonar:sonar"
 
             }    
             
