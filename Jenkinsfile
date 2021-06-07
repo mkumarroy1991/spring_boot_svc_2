@@ -93,7 +93,7 @@ node{
             withKubeConfig([credentialsId: 'k', serverUrl: 'https://172.31.31.194:6443']) {
                 sh "kubectl set image deployment/app-2 spring-con2=vinay1908/spring-app-2:${build_tag} --record"
                 //sh 'kubectl apply -f deployment.yaml'
-                //sh 'kubectl apply -f service.yaml'
+                sh 'kubectl apply -f service.yaml'
                 }
         }  
 
