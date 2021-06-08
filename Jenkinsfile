@@ -73,7 +73,8 @@ node{
             
         stage('Docker Build'){
   
-            sh "docker build -t vinay1908/spring-app-2:${build_tag} ."
+            //sh "docker build -t vinay1908/spring-app-2:${build_tag} ."
+            sh "docker build -t vinay1908/spring-app-2:v1 ."
 
         }
         
@@ -82,7 +83,8 @@ node{
             withCredentials([usernamePassword(credentialsId: 'DHCred', passwordVariable: 'DHPASS', usernameVariable: 'DHUSER')]) {
                  
                 sh "docker login -u ${DHUSER} -p ${DHPASS}"
-                sh "docker push vinay1908/spring-app-2:${build_tag}"
+                //sh "docker push vinay1908/spring-app-2:${build_tag}"
+                sh "docker push vinay1908/spring-app-2:v1"
                 }
         }
 
@@ -91,8 +93,8 @@ node{
         stage('Deploy to Kubernetes') {
              
             withKubeConfig([credentialsId: 'k', serverUrl: 'https://172.31.31.194:6443']) {
-                sh "kubectl set image deployment/app-2 spring-con2=vinay1908/spring-app-2:${build_tag} --record"
-                //sh 'kubectl apply -f deployment.yaml'
+                //sh "kubectl set image deployment/app-2 spring-con2=vinay1908/spring-app-2:${build_tag} --record"
+                sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
                 }
         }  
