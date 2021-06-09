@@ -114,7 +114,7 @@ node{
             mail bcc: '',
             cc: '', 
             from: '', replyTo: '', 
-            subject: "${currentBuild.result}fully Deployed into ${params.env} Environment", to: "${mail_to}",
+            subject: "Successfully Deployed into Dev Environment", to: "${mail_to}",
             body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'"
             
                 
@@ -125,7 +125,7 @@ node{
         mail bcc: '',
             cc: '', 
             from: '', replyTo: '', 
-            subject: "${currentBuild.result}fully Deployed into ${params.env} Environment", to: "${mail_to}",
+            subject: "Error in Deployment for Dev Environment", to: "${mail_to}",
             body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'"
             
 
