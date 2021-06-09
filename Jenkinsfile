@@ -15,7 +15,7 @@ node{
                 echo "cleaning workspace"
             """
             cleanWs()
-                
+                //clean
         }
         stage('Git Checkout') {
                 
