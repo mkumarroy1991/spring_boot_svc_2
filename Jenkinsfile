@@ -41,7 +41,7 @@ node{
 
         stage('SonarQube'){
 
-            withSonarQubeEnv(credentialsId: 'sonar-token1', installationName: 'sonar-server-1') {
+            withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'sonar-server') {
 
                 sh "${MAVEN_HOME}/mvn -B -f pom.xml -Dsonar.projectName=spring-app-2 clean verify sonar:sonar"
 
