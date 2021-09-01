@@ -1,8 +1,8 @@
 node{
     
     def MAVEN_HOME = '/opt/maven/bin'
-    def mail_to = 'vinaylodhi19081999@gmail.com'
-    def mail_from = 'vinaylodhi1908@gmail.com'
+    def mail_to = 'mkroy1501@gmail.com'
+    def mail_from = 'mkroy1501@gmail.com'
     def build_tag_format = "--pretty='%h'"
     def build_tag
     
