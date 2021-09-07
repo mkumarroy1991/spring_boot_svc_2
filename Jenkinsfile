@@ -33,8 +33,8 @@ node{
         }
             
         stage('Junit'){
-                
-            sh "${MAVEN_HOME}/mvn clean test"
+                sh "/usr/bin/mvn clean test"
+            //sh "${MAVEN_HOME}/mvn clean test"
          
                 
         }
