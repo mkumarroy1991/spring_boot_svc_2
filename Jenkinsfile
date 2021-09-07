@@ -113,14 +113,14 @@ node{
         }
         
         stage('Post-build Section') {
-            
+            /*
             mail bcc: '',
             cc: '', 
             from: '', replyTo: '', 
             subject: "Successfully Deployed into Dev Environment", to: "${mail_to}",
             body: "Job :'${env.JOB_NAME}' \n Build No. :'${env.BUILD_NUMBER}' \n Build Url :'${env.BUILD_URL}'"
             
-                
+             */   
         }
         
     }catch(Exception exp){
