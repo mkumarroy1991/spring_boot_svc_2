@@ -52,7 +52,7 @@ node{
             
         stage('mvn build'){
                 
-            sh "${MAVEN_HOME}/mvn clean package -DskipTests"
+            sh "/usr/bin/mvn clean package -DskipTests"
                 
         }
         
