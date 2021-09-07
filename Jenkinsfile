@@ -20,8 +20,8 @@ node{
         stage('Git Checkout') {
                 
             git branch: 'dev',
-                credentialsId: 'git_cred',
-                url: 'https://github.com/VinayLodhi/spring_boot_svc_2.git'
+                credentialsId: 'manish_id',
+                url: 'https://github.com/mkumarroy1991/spring_boot_svc_2.git'
             
             // Git hash Code ->
            
