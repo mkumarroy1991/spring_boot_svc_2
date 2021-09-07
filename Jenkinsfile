@@ -66,11 +66,12 @@ node{
             //                        "pattern": "webapp/target/webapp.war",
             //                        "target": "spring-boot-svc-2/com/mycompany/${build_tag}/"
             //                        }
-                                ]
+            //                    ]
              //                   }"""
             // server.upload(uploadSpec)
+            
             sh "echo Upload artifacts" 
-        }
+          }
             
         stage('Docker Build'){
   
