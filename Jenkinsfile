@@ -93,7 +93,7 @@ node{
             
         stage('Deploy to Kubernetes') {
              
-            withKubeConfig([credentialsId: 'kube_config', serverUrl: 'https://172.31.10.89:6443']) {
+            withKubeConfig([credentialsId: 'kube_config', serverUrl: 'https://172.31.6.34:6443']) {
                 sh "kubectl set image deployment/app-2 spring-con2=manishroy1710/spring-app-2:${build_tag} --record"
                 //sh 'kubectl apply -f deployment.yaml'
                 //sh 'kubectl apply -f service.yaml'
