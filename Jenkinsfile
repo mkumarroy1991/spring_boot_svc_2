@@ -39,16 +39,17 @@ node{
                 
         }
 
-       // stage('SonarQube'){
+        stage('SonarQube'){
 
        //     withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'sonar-server') {
 
        //         sh "${MAVEN_HOME}/mvn -B -f pom.xml -Dsonar.projectName=spring-app-2 clean verify sonar:sonar"
+                sh "echo Sonarqube Project quality status"
 
         //    }    
             
                 
-       // }
+        }
             
         stage('mvn build'){
                 
@@ -58,17 +59,17 @@ node{
         
         stage('Uploading Artifacts to Artifactory'){
             
-            def server = Artifactory.server 'jfrog-server'
-                def uploadSpec = """{
-                                "files": [
-                                    {
-                                    "pattern": "webapp/target/webapp.war",
-                                    "target": "spring-boot-svc-2/com/mycompany/${build_tag}/"
-                                    }
+            //def server = Artifactory.server 'jfrog-server'
+            //    def uploadSpec = """{
+            //                    "files": [
+            //                        {
+            //                        "pattern": "webapp/target/webapp.war",
+            //                        "target": "spring-boot-svc-2/com/mycompany/${build_tag}/"
+            //                        }
                                 ]
-                                }"""
-            server.upload(uploadSpec)
-             
+             //                   }"""
+            // server.upload(uploadSpec)
+            sh "echo Upload artifacts" 
         }
             
         stage('Docker Build'){
