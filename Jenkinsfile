@@ -39,16 +39,16 @@ node{
                 
         }
 
-        stage('SonarQube'){
+       // stage('SonarQube'){
 
-            withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'sonar-server') {
+       //     withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'sonar-server') {
 
-                sh "${MAVEN_HOME}/mvn -B -f pom.xml -Dsonar.projectName=spring-app-2 clean verify sonar:sonar"
+       //         sh "${MAVEN_HOME}/mvn -B -f pom.xml -Dsonar.projectName=spring-app-2 clean verify sonar:sonar"
 
-            }    
+        //    }    
             
                 
-        }
+       // }
             
         stage('mvn build'){
                 
@@ -73,17 +73,17 @@ node{
             
         stage('Docker Build'){
   
-            sh "docker build -t vinay1908/spring-app-2:${build_tag} ."
-            //sh "docker build -t vinay1908/spring-app-1:v1 ."
+            sh "docker build -t manishroy1710/spring-app-2:${build_tag} ."
+            //sh "docker build -t manishroy1710/spring-app-1:v1 ."
 
         }
         
         stage('Push to DockerHub'){
 
-            withCredentials([usernamePassword(credentialsId: 'DHCred', passwordVariable: 'DHPASS', usernameVariable: 'DHUSER')]) {
+            withCredentials([usernamePassword(credentialsId: 'Manish_DH', passwordVariable: 'DHPASS', usernameVariable: 'DHUSER')]) {
                  
                 sh "docker login -u ${DHUSER} -p ${DHPASS}"
-                sh "docker push vinay1908/spring-app-2:${build_tag}"
+                sh "docker push manishroy1710/spring-app-2:${build_tag}"
                 }
         }
 
@@ -92,7 +92,7 @@ node{
         stage('Deploy to Kubernetes') {
              
             withKubeConfig([credentialsId: 'kube_config', serverUrl: 'https://172.31.27.97:6443']) {
-                sh "kubectl set image deployment/app-2 spring-con2=vinay1908/spring-app-2:${build_tag} --record"
+                sh "kubectl set image deployment/app-2 spring-con2=manishroy1710/spring-app-2:${build_tag} --record"
                 //sh 'kubectl apply -f deployment.yaml'
                 //sh 'kubectl apply -f service.yaml'
                 }
