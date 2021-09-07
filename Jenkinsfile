@@ -97,7 +97,7 @@ node{
                 sh "kubectl set image deployment/app-2 spring-con2=manishroy1710/spring-app-2:${build_tag} --record"
                 //sh 'kubectl apply -f deployment.yaml'
                 //sh 'kubectl apply -f service.yaml'
-                }
+                } */
             /*
             kubernetesDeploy(
                     configs: 'deployment.yaml',
@@ -109,7 +109,6 @@ node{
                     kubeconfigId: 'K8S',
                     enableConfigSubstitution: true
                     ) */
-            */
             sh "echo Application deployed to K8s"
         }
         
